@@ -22,3 +22,10 @@ samples, guidance on mobile development, and a full API reference.
 [dart-china](https://dartcn.com/)
 [dartbyexample](http://jpryan.me/dartbyexample/)
 [flutterawesome](https://flutterawesome.com/)
+
+## Install
+
+`$ open -a Simulator`
+`$ flutter run`
+
+> To hot reload changes while running, press "r". To hot restart (and rebuild state), press "R".
