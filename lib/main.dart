@@ -1,63 +1,56 @@
+import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(WeApp());
 
-class MyApp extends StatelessWidget {
+class WeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+    return MaterialApp(title: "WeLook", home: RandomWords());
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
+class RandomWords extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<StatefulWidget> createState() {
+    return RandomWordsState();
+  }
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class RandomWordsState extends State<RandomWords> {
+  final _suggestions = <WordPair>[];
+  final _biggerFont = const TextStyle(fontSize: 18.0);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text("word list"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
+      body: _buildSuggestions(),
+    );
+  }
+
+  Widget _buildSuggestions() {
+    return ListView.builder(
+        padding: const EdgeInsets.all(16.0),
+        itemBuilder: (context, i) {
+          if (i.isOdd) return Divider();
+          final index = i ~/ 2;
+          if (index >= _suggestions.length) {
+            _suggestions.addAll(generateWordPairs().take(10));
+          }
+          return _buildRow(
+              _suggestions[index].asPascalCase + "--" + i.toString());
+        });
+  }
+
+  Widget _buildRow(String pair) {
+    return ListTile(
+      title: Text(
+        pair,
+        style: _biggerFont,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
     );
   }
 }
