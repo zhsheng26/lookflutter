@@ -17,11 +17,11 @@ samples, guidance on mobile development, and a full API reference.
 
 ## 学习资源
 
-[dart-pub 镜像](https://mirror.tuna.tsinghua.edu.cn/help/dart-pub/)
-[dart 官方 guides](https://dart.dev/guides)
-[dart-china](https://dartcn.com/)
-[dartbyexample](http://jpryan.me/dartbyexample/)
-[flutterawesome](https://flutterawesome.com/)
+1. [dart-pub 镜像](https://mirror.tuna.tsinghua.edu.cn/help/dart-pub/)
+2. [dart 官方 guides](https://dart.dev/guides)
+3. [dart-china](https://dartcn.com/)
+4. [dartbyexample](http://jpryan.me/dartbyexample/)
+5. [flutterawesome](https://flutterawesome.com/)
 
 ## Install
 
