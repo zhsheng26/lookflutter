@@ -26,6 +26,7 @@ samples, guidance on mobile development, and a full API reference.
 ## Install
 
 `$ open -a Simulator`
+
 `$ flutter run`
 
 > To hot reload changes while running, press "r". To hot restart (and rebuild state), press "R".
