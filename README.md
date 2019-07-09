@@ -22,6 +22,7 @@ samples, guidance on mobile development, and a full API reference.
 3. [dart-china](https://dartcn.com/)
 4. [dartbyexample](http://jpryan.me/dartbyexample/)
 5. [flutterawesome](https://flutterawesome.com/)
+6. [flutter实战](https://github.com/flutterchina/flutter-in-action)
 
 ## Install
 
