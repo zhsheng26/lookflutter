@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'RandomWords.dart';
+import 'list_page.dart';
+import 'random_words.dart';
 
 void main() => runApp(WeApp());
 
@@ -13,6 +14,7 @@ class WeApp extends StatelessWidget {
       home: HomeMenu(),
       routes: {
         "randomWord": (context) => RandomWords(),
+        "list_page": (context) => ListArgumentWidget(),
       },
     );
   }
@@ -34,7 +36,9 @@ class HomeMenu extends StatelessWidget {
                 child: Text("RandomWord"),
               ),
               RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed("list_page", arguments: 5);
+                },
                 child: Text("Learn"),
               ),
             ],
