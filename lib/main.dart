@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'cupertino.dart';
 import 'list_page.dart';
 import 'random_words.dart';
+import 'text.dart';
 
 void main() => runApp(WeApp());
 
@@ -15,6 +17,8 @@ class WeApp extends StatelessWidget {
       routes: {
         "randomWord": (context) => RandomWords(),
         "list_page": (context) => ListArgumentWidget(),
+        "cupertino": (context) => OneCupertinoWidget(),
+        "base_widget": (context) => BaseWidget(),
       },
     );
   }
@@ -28,19 +32,41 @@ class HomeMenu extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               RaisedButton(
                 onPressed: () {
                   Navigator.of(context).pushNamed("randomWord");
                 },
-                child: Text("RandomWord"),
+                child: Text(
+                  "RandomWord",
+                ),
               ),
+              Padding(padding: EdgeInsets.only(left: 10.0)),
               RaisedButton(
                 onPressed: () {
                   Navigator.of(context).pushNamed("list_page", arguments: 5);
                 },
                 child: Text("Learn"),
               ),
+              Padding(padding: EdgeInsets.only(left: 10.0)),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed("cupertino");
+                },
+                child: Text("cupertino"),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              RaisedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed("base_widget");
+                },
+                child: Text("基础组件"),
+              )
             ],
           )
         ],
