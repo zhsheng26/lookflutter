@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -10,17 +12,32 @@ class MovieList extends StatefulWidget {
 }
 
 Future<Map> getJson() async {
-  await http.get("");
+  var url =
+      'http://api.themoviedb.org/3/discover/movie?api_key=004cbaf19212094e32aa9ef6f6577f22';
+  http.Response response = await http.get(url);
+  return json.decode(response.body);
 }
 
 class MovieListState extends State<MovieList> {
   Color themeColor = const Color(0xff3c3261);
-  var movies;
+  var movies = [];
 
-  void getData() async {}
+  void getData() async {
+    var data = await getJson();
+    if (!mounted) return;
+    setState(() {
+      movies = data['results'];
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    getData();
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -32,14 +49,19 @@ class MovieListState extends State<MovieList> {
         elevation: 1,
         centerTitle: true,
         backgroundColor: Colors.white,
-        leading: Icon(
-          Icons.arrow_back,
-          color: Theme.of(context).primaryColor,
-        ),
+        leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Theme.of(context).primaryColorDark,
+            ),
+            onPressed: () {
+              Navigator.maybePop(context);
+            }),
         actions: <Widget>[
-          Icon(
-            Icons.menu,
+          IconButton(
+            icon: Icon(Icons.menu),
             color: Theme.of(context).primaryColor,
+            onPressed: () {},
           )
         ],
       ),
@@ -50,13 +72,16 @@ class MovieListState extends State<MovieList> {
           children: <Widget>[
             MovieTitle(themeColor),
             Expanded(
-              child: ListView.builder(itemBuilder: (context, i) {
-                return FlatButton(
-                  child: MovieCell(movies, i),
-                  padding: const EdgeInsets.all(0),
-                  onPressed: () {},
-                );
-              }),
+              child: ListView.builder(
+                itemCount: movies.length,
+                itemBuilder: (context, i) {
+                  return FlatButton(
+                    child: MovieCell(movies, i),
+                    padding: const EdgeInsets.all(0),
+                    onPressed: () {},
+                  );
+                },
+              ),
             ),
           ],
         ),
@@ -139,6 +164,7 @@ class MovieCell extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).accentColor,
                       ),
+                      maxLines: 1,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(2.0),
@@ -149,6 +175,8 @@ class MovieCell extends StatelessWidget {
                         fontSize: 20.0,
                         color: Colors.grey,
                       ),
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
                     )
                   ],
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'cupertino.dart';
+import 'list_movie.dart';
 import 'list_page.dart';
 import 'login.dart';
 import 'random_words.dart';
@@ -21,6 +22,7 @@ class WeApp extends StatelessWidget {
         "cupertino": (context) => OneCupertinoWidget(),
         "base_widget": (context) => BaseWidget(),
         "login": (context) => LoginWidget(),
+        "movie": (context) => MovieList(),
       },
     );
   }
@@ -75,6 +77,13 @@ class HomeMenu extends StatelessWidget {
                   Navigator.pushNamed(context, "login");
                 },
                 child: Text("登录"),
+              ),
+              Spacer(),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "movie");
+                },
+                child: Text("movie"),
               ),
             ],
           )
