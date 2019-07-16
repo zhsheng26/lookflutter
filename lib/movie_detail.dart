@@ -28,27 +28,43 @@ class MovieDetail extends StatelessWidget {
           ),
           new SingleChildScrollView(
             child: new Container(
-              margin: const EdgeInsets.all(20.0),
               child: new Column(
                 children: <Widget>[
-                  new Container(
-                    alignment: Alignment.center,
-                    child: new Container(
-                      width: 400.0,
-                      height: 400.0,
-                    ),
-                    decoration: new BoxDecoration(
-                        borderRadius: new BorderRadius.circular(10.0),
-                        image: new DecorationImage(
-                            image: new NetworkImage(
-                                image_url + movie['poster_path']),
-                            fit: BoxFit.cover),
-                        boxShadow: [
-                          new BoxShadow(
-                              color: Colors.black,
-                              blurRadius: 20.0,
-                              offset: new Offset(0.0, 10.0))
-                        ]),
+                  Stack(
+                    children: <Widget>[
+                      new Container(
+                        alignment: Alignment.center,
+                        child: new Container(
+                          width: 400.0,
+                          height: 400.0,
+                        ),
+                        margin: const EdgeInsets.all(20.0),
+                        decoration: new BoxDecoration(
+                            borderRadius: new BorderRadius.circular(10.0),
+                            image: new DecorationImage(
+                                image: new NetworkImage(
+                                    image_url + movie['poster_path']),
+                                fit: BoxFit.cover),
+                            boxShadow: [
+                              new BoxShadow(
+                                  color: Colors.black,
+                                  blurRadius: 20.0,
+                                  offset: new Offset(0.0, 10.0))
+                            ]),
+                      ),
+                      Container(
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.arrow_back,
+                            color: Colors.red,
+                          ),
+                          onPressed: () {
+                            Navigator.maybePop(context);
+                          },
+                        ),
+                        padding: EdgeInsets.fromLTRB(10, 40, 10, 20),
+                      )
+                    ],
                   ),
                   new Container(
                     margin: const EdgeInsets.symmetric(

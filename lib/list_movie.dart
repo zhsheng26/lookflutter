@@ -75,7 +75,7 @@ class MovieListState extends State<MovieList> {
             MovieTitle(themeColor),
             Expanded(
               child: ListView.builder(
-                itemCount: movies.length,
+                itemCount: movies == null ? 0 : movies.length,
                 itemBuilder: (context, i) {
                   return FlatButton(
                     child: MovieCell(movies, i),
