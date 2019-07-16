@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import 'movie_detail.dart';
+
 class MovieList extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -78,7 +80,14 @@ class MovieListState extends State<MovieList> {
                   return FlatButton(
                     child: MovieCell(movies, i),
                     padding: const EdgeInsets.all(0),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) {
+                          return MovieDetail(movies[i]);
+                        }),
+                      );
+                    },
                   );
                 },
               ),
