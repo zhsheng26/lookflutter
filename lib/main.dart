@@ -1,17 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:lookflutter/learn/learn_menu.dart';
 
-import 'learn/cupertino.dart';
-import 'learn/random_words.dart';
-import 'learn/list_movie.dart';
-import 'learn/list_page.dart';
-import 'learn/login.dart';
-import 'learn/base_widget.dart';
+import 'index.dart';
+import 'routes.dart';
+import 'util/constants.dart';
 
 void main() => runApp(MaterialApp(
       home: SplashWidget(),
+      theme: Constants.lightTheme,
+      routes: routes,
     ));
 
 class SplashWidget extends StatefulWidget {
@@ -33,8 +31,8 @@ class SplashState extends State<SplashWidget> {
   }
 
   onDoneLoading() async {
-    Navigator.of(context)
-        .pushReplacement(MaterialPageRoute(builder: (context) => WeApp()));
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => IndexWidget()));
   }
 
   @override
@@ -73,25 +71,6 @@ class SplashState extends State<SplashWidget> {
           ),
         ],
       ),
-    );
-  }
-}
-
-class WeApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "WeLook",
-      theme: ThemeData(primaryColor: Colors.deepOrange),
-      home: LearnMenuWidget(),
-      routes: {
-        "randomWord": (context) => RandomWords(),
-        "list_page": (context) => ListArgumentWidget(),
-        "cupertino": (context) => OneCupertinoWidget(),
-        "base_widget": (context) => BaseWidget(),
-        "login": (context) => LoginWidget(),
-        "movie": (context) => MovieList(),
-      },
     );
   }
 }
