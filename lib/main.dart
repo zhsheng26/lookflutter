@@ -1,16 +1,22 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'index.dart';
 import 'routes.dart';
 import 'util/constants.dart';
 
-void main() => runApp(MaterialApp(
-      home: SplashWidget(),
-      theme: Constants.lightTheme,
-      routes: routes,
-    ));
+void main() {
+  runApp(MaterialApp(
+    home: SplashWidget(),
+    theme: Constants.lightTheme,
+    routes: routes,
+  ));
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+    statusBarColor: Colors.white,
+  ));
+}
 
 class SplashWidget extends StatefulWidget {
   @override

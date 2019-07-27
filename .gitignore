@@ -14,6 +14,7 @@
 *.ipr
 *.iws
 .idea/
+*.log
 
 # Visual Studio Code related
 .vscode/

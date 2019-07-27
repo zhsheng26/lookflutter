@@ -34,6 +34,9 @@ class _IndexState extends State<IndexWidget> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
+      statusBarColor: Colors.blue,
+    ));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: Constants.appName,

@@ -31,3 +31,6 @@ samples, guidance on mobile development, and a full API reference.
 `$ flutter run`
 
 > To hot reload changes while running, press "r". To hot restart (and rebuild state), press "R".
+
+### 构建Android apk
+`$ flutter build apk --split-per-abi`  
