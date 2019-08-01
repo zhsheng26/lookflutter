@@ -73,8 +73,8 @@ class _IndexState extends State<IndexWidget> {
                 title: Text("微观"),
               ),
               BottomNavigationBarItem(
-                icon: Icon(FontAwesomeIcons.newspaper),
-                title: Text("首页"),
+                icon: Icon(FontAwesomeIcons.piedPiper),
+                title: Text("订阅"),
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.dashboard),
