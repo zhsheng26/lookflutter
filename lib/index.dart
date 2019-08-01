@@ -1,5 +1,7 @@
+import 'package:boxicons_flutter/boxicons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lookflutter/ui/home.dart';
 
 import 'learn/learn_menu.dart';
@@ -67,19 +69,19 @@ class _IndexState extends State<IndexWidget> {
             type: BottomNavigationBarType.fixed,
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                title: Text("首页"),
-              ),
-              BottomNavigationBarItem(
                 icon: Icon(Icons.wallpaper),
                 title: Text("微观"),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(FontAwesomeIcons.newspaper),
+                title: Text("首页"),
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.dashboard),
                 title: Text("发现"),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person),
+                icon: Icon(Boxicons.bxUser),
                 title: Text("我"),
               ),
             ],

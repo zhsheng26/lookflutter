@@ -25,6 +25,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   english_words: ^3.1.0
   http: any
+  boxicons_flutter: ^1.0.0
+  font_awesome_flutter: ^8.5.0
 
 dev_dependencies:
   flutter_test:
@@ -59,6 +61,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: Boxicons
+      fonts:
+        - asset: assets/fonts/boxicons.ttf
+          weight: 400
   # fonts:
   #   - family: Schyler
   #     fonts:
